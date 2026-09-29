@@ -1,0 +1,41 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  padding: 0 32px;
+  border-bottom: 1px solid #dadce0;
+  background: #fff;
+}
+.brand {
+  color: #3c4043;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.brand:hover {
+  text-decoration: none;
+}
+nav {
+  display: flex;
+  gap: 24px;
+}
+nav a {
+  font-size: 14px;
+}
+.shell {
+  width: 100%;
+  margin: 0;
+  padding: 40px 32px;
+}
+@media (max-width: 600px) {
+  .top-bar {
+    padding: 0 16px;
+  }
+  nav {
+    gap: 12px;
+  }
+  .shell {
+    padding: 24px 16px;
+  }
+}

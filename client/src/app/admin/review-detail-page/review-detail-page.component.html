@@ -1,0 +1,31 @@
+<p><a routerLink="/admin/reviews">← До списку</a></p>
+
+@if (review(); as item) {
+  <h1>Відгук від {{ item.authorName }}</h1>
+  <p>{{ item.email }}</p>
+  <blockquote>{{ item.text }}</blockquote>
+  <dl>
+    <dt>Статус</dt>
+    <dd>{{ item.analysisStatus }}</dd>
+    <dt>Тональність</dt>
+    <dd>{{ item.sentiment ?? '—' }}</dd>
+    <dt>Пріоритет</dt>
+    <dd>{{ item.priority ?? '—' }}</dd>
+    <dt>Категорія</dt>
+    <dd>{{ item.category ?? '—' }}</dd>
+    <dt>Потрібна термінова реакція</dt>
+    <dd>
+      {{ item.needsUrgentResponse === undefined ? '—' : item.needsUrgentResponse ? 'Так' : 'Ні' }}
+    </dd>
+  </dl>
+  <section>
+    <h2>Чернетка відповіді клієнту</h2>
+    <p>{{ item.aiDraftResponse ?? 'AI-інтеграцію буде підключено пізніше.' }}</p>
+    <button disabled aria-describedby="ai-note">Згенерувати відповідь</button>
+    <p id="ai-note">AI-інтеграцію буде підключено пізніше.</p>
+  </section>
+} @else if (error()) {
+  <p role="alert">{{ error() }}</p>
+} @else {
+  <p>Завантаження…</p>
+}
