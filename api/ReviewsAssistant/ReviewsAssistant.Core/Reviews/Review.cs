@@ -14,6 +14,8 @@ public sealed class Review
     public bool? NeedsUrgentResponse { get; set; }
     public string? Summary { get; set; }
     public string? AiDraftResponse { get; set; }
+    public string? AiDraftResponseProvider { get; set; }
+    public string? AiDraftResponseModel { get; set; }
     public DateTime? AnalyzedAtUtc { get; set; }
 }
 

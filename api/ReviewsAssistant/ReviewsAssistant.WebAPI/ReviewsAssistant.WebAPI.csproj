@@ -19,4 +19,11 @@
     <ProjectReference Include="..\ReviewsAssistant.Infrastructure\ReviewsAssistant.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Prompts\OpenAiResponseGeneration.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

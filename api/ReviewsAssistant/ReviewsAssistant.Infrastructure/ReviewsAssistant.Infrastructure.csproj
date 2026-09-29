@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
     <ProjectReference Include="..\ReviewsAssistant.Application\ReviewsAssistant.Application.csproj" />
     <ProjectReference Include="..\ReviewsAssistant.Core\ReviewsAssistant.Core.csproj" />

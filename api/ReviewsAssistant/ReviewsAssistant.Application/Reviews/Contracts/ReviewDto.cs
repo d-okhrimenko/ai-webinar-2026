@@ -15,4 +15,6 @@ public sealed record ReviewDto(
     bool? NeedsUrgentResponse,
     string? Summary,
     string? AiDraftResponse,
+    string? AiDraftResponseProvider,
+    string? AiDraftResponseModel,
     DateTime? AnalyzedAtUtc);
