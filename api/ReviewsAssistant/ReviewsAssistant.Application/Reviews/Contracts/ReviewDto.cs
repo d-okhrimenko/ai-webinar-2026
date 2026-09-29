@@ -14,6 +14,8 @@ public sealed record ReviewDto(
     ReviewCategory? Category,
     bool? NeedsUrgentResponse,
     string? Summary,
+    string? AiAnalysisProvider,
+    string? AiAnalysisModel,
     string? AiDraftResponse,
     string? AiDraftResponseProvider,
     string? AiDraftResponseModel,

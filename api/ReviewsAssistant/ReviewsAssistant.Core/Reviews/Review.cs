@@ -13,6 +13,8 @@ public sealed class Review
     public ReviewCategory? Category { get; set; }
     public bool? NeedsUrgentResponse { get; set; }
     public string? Summary { get; set; }
+    public string? AiAnalysisProvider { get; set; }
+    public string? AiAnalysisModel { get; set; }
     public string? AiDraftResponse { get; set; }
     public string? AiDraftResponseProvider { get; set; }
     public string? AiDraftResponseModel { get; set; }

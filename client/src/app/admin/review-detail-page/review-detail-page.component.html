@@ -21,6 +21,9 @@
   <section>
     <h2>AI-аналіз</h2>
     <p>{{ item.summary ?? 'Аналіз ще не виконано.' }}</p>
+    @if (item.aiAnalysisProvider && item.aiAnalysisModel) {
+      <p>Створено: {{ item.aiAnalysisProvider }} ({{ item.aiAnalysisModel }})</p>
+    }
     <button type="button" (click)="analyze()" [disabled]="isAnalyzing()">
       {{ isAnalyzing() ? 'Аналізуємо…' : 'Проаналізувати відгук' }}
     </button>

@@ -15,6 +15,8 @@ public sealed class ReviewsDbContext(DbContextOptions<ReviewsDbContext> options)
         review.Property(item => item.Email).HasMaxLength(320).IsRequired();
         review.Property(item => item.Text).HasMaxLength(4000).IsRequired();
         review.Property(item => item.Summary).HasMaxLength(1000);
+        review.Property(item => item.AiAnalysisProvider).HasMaxLength(100);
+        review.Property(item => item.AiAnalysisModel).HasMaxLength(100);
         review.Property(item => item.AiDraftResponse).HasMaxLength(4000);
         review.Property(item => item.AiDraftResponseProvider).HasMaxLength(100);
         review.Property(item => item.AiDraftResponseModel).HasMaxLength(100);
