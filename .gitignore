@@ -1,6 +1,7 @@
 # .NET build artifacts
 **/bin/
 **/obj/
+.verification-build/
 
 # IDE and local tooling
 .vs/
@@ -10,4 +11,4 @@
 
 # Local configuration and secrets
 .env
-.env.*	
+.env.*

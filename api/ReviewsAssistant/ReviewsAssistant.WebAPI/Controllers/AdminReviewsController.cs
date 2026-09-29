@@ -8,7 +8,9 @@ namespace ReviewsAssistant.WebAPI.Controllers;
 
 [ApiController, Authorize]
 [Route("api/admin/reviews")]
-public sealed class AdminReviewsController(IReviewService reviewService) : ControllerBase
+public sealed class AdminReviewsController(
+    IReviewService reviewService,
+    IReviewAiService reviewAiService) : ControllerBase
 {
     [HttpGet]
     public Task<IReadOnlyList<ReviewDto>> GetAll([FromQuery] AnalysisStatus? status, [FromQuery] Sentiment? sentiment,
@@ -24,10 +26,16 @@ public sealed class AdminReviewsController(IReviewService reviewService) : Contr
     }
 
     [HttpPost("{id:guid}/analyze")]
-    public IActionResult Analyze(Guid id) => StatusCode(StatusCodes.Status501NotImplemented,
-        new { message = "AI-інтеграцію буде підключено пізніше." });
+    public async Task<ActionResult<ReviewDto>> Analyze(Guid id, CancellationToken cancellationToken)
+    {
+        var review = await reviewAiService.AnalyzeAsync(id, cancellationToken);
+        return review is null ? NotFound() : Ok(review);
+    }
 
     [HttpPost("{id:guid}/draft-response")]
-    public IActionResult DraftResponse(Guid id) => StatusCode(StatusCodes.Status501NotImplemented,
-        new { message = "AI-інтеграцію буде підключено пізніше." });
+    public async Task<ActionResult<ReviewDto>> DraftResponse(Guid id, CancellationToken cancellationToken)
+    {
+        var review = await reviewAiService.GenerateDraftResponseAsync(id, cancellationToken);
+        return review is null ? NotFound() : Ok(review);
+    }
 }

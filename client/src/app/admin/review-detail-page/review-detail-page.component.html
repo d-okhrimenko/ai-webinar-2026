@@ -19,11 +19,22 @@
     </dd>
   </dl>
   <section>
-    <h2>Чернетка відповіді клієнту</h2>
-    <p>{{ item.aiDraftResponse ?? 'AI-інтеграцію буде підключено пізніше.' }}</p>
-    <button disabled aria-describedby="ai-note">Згенерувати відповідь</button>
-    <p id="ai-note">AI-інтеграцію буде підключено пізніше.</p>
+    <h2>AI-аналіз</h2>
+    <p>{{ item.summary ?? 'Аналіз ще не виконано.' }}</p>
+    <button type="button" (click)="analyze()" [disabled]="isAnalyzing()">
+      {{ isAnalyzing() ? 'Аналізуємо…' : 'Проаналізувати відгук' }}
+    </button>
   </section>
+  <section>
+    <h2>Чернетка відповіді клієнту</h2>
+    <p>{{ item.aiDraftResponse ?? 'Чернетку ще не згенеровано.' }}</p>
+    <button type="button" (click)="generateDraftResponse()" [disabled]="isGeneratingResponse()">
+      {{ isGeneratingResponse() ? 'Генеруємо…' : 'Згенерувати відповідь' }}
+    </button>
+  </section>
+  @if (actionError()) {
+    <p role="alert">{{ actionError() }}</p>
+  }
 } @else if (error()) {
   <p role="alert">{{ error() }}</p>
 } @else {
