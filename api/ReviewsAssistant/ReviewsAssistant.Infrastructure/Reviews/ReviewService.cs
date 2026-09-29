@@ -87,5 +87,7 @@ public sealed class ReviewService(ReviewsDbContext dbContext) : IReviewService
         item.NeedsUrgentResponse,
         item.Summary,
         item.AiDraftResponse,
+        item.AiDraftResponseProvider,
+        item.AiDraftResponseModel,
         item.AnalyzedAtUtc);
 }

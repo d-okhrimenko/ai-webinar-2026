@@ -59,6 +59,8 @@ public sealed class ReviewAiService(
             new AiResponseGenerationRequest(review.Text),
             cancellationToken);
         review.AiDraftResponse = result.DraftResponse;
+        review.AiDraftResponseProvider = result.ProviderName;
+        review.AiDraftResponseModel = result.ModelName;
         await dbContext.SaveChangesAsync(cancellationToken);
         return Map(review);
     }
@@ -76,5 +78,7 @@ public sealed class ReviewAiService(
         item.NeedsUrgentResponse,
         item.Summary,
         item.AiDraftResponse,
+        item.AiDraftResponseProvider,
+        item.AiDraftResponseModel,
         item.AnalyzedAtUtc);
 }

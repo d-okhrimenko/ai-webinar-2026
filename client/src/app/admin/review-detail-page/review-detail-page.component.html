@@ -28,6 +28,9 @@
   <section>
     <h2>Чернетка відповіді клієнту</h2>
     <p>{{ item.aiDraftResponse ?? 'Чернетку ще не згенеровано.' }}</p>
+    @if (item.aiDraftResponseProvider && item.aiDraftResponseModel) {
+      <p>Створено: {{ item.aiDraftResponseProvider }} ({{ item.aiDraftResponseModel }})</p>
+    }
     <button type="button" (click)="generateDraftResponse()" [disabled]="isGeneratingResponse()">
       {{ isGeneratingResponse() ? 'Генеруємо…' : 'Згенерувати відповідь' }}
     </button>

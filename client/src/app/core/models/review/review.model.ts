@@ -16,5 +16,7 @@ export interface Review {
   needsUrgentResponse?: boolean;
   summary?: string;
   aiDraftResponse?: string;
+  aiDraftResponseProvider?: string;
+  aiDraftResponseModel?: string;
   analyzedAtUtc?: string;
 }
