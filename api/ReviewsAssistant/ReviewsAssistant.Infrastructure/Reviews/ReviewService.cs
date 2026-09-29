@@ -86,6 +86,8 @@ public sealed class ReviewService(ReviewsDbContext dbContext) : IReviewService
         item.Category,
         item.NeedsUrgentResponse,
         item.Summary,
+        item.AiAnalysisProvider,
+        item.AiAnalysisModel,
         item.AiDraftResponse,
         item.AiDraftResponseProvider,
         item.AiDraftResponseModel,

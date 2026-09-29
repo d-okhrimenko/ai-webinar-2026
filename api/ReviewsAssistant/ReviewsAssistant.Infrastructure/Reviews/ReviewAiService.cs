@@ -30,6 +30,8 @@ public sealed class ReviewAiService(
             review.Category = result.Category;
             review.NeedsUrgentResponse = result.NeedsUrgentResponse;
             review.Summary = result.Summary;
+            review.AiAnalysisProvider = result.ProviderName;
+            review.AiAnalysisModel = result.ModelName;
             review.AnalyzedAtUtc = DateTime.UtcNow;
             review.AnalysisStatus = AnalysisStatus.Completed;
             await dbContext.SaveChangesAsync(cancellationToken);
@@ -77,6 +79,8 @@ public sealed class ReviewAiService(
         item.Category,
         item.NeedsUrgentResponse,
         item.Summary,
+        item.AiAnalysisProvider,
+        item.AiAnalysisModel,
         item.AiDraftResponse,
         item.AiDraftResponseProvider,
         item.AiDraftResponseModel,

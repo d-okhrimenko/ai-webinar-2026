@@ -15,6 +15,8 @@ export interface Review {
   category?: ReviewCategory | null;
   needsUrgentResponse?: boolean;
   summary?: string;
+  aiAnalysisProvider?: string;
+  aiAnalysisModel?: string;
   aiDraftResponse?: string;
   aiDraftResponseProvider?: string;
   aiDraftResponseModel?: string;
