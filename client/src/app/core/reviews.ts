@@ -20,4 +20,12 @@ export class ReviewsApi {
   get(id: string) {
     return this.http.get<Review>(`${this.apiUrl}/admin/reviews/${id}`);
   }
+
+  analyze(id: string) {
+    return this.http.post<Review>(`${this.apiUrl}/admin/reviews/${id}/analyze`, {});
+  }
+
+  generateDraftResponse(id: string) {
+    return this.http.post<Review>(`${this.apiUrl}/admin/reviews/${id}/draft-response`, {});
+  }
 }

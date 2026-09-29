@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ReviewsAssistant.Application.Reviews;
+using ReviewsAssistant.Infrastructure.Ai;
 using ReviewsAssistant.Infrastructure.Data;
 using ReviewsAssistant.Infrastructure.Reviews;
 
@@ -14,6 +15,8 @@ var signingKey = jwtSettings["SigningKey"] ?? throw new InvalidOperationExceptio
 
 builder.Services.AddDbContext<ReviewsDbContext>(options => options.UseNpgsql(connectionString));
 builder.Services.AddScoped<IReviewService, ReviewService>();
+builder.Services.AddScoped<IReviewAiService, ReviewAiService>();
+builder.Services.AddAiProvider(builder.Configuration);
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy
