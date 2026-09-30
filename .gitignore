@@ -1,0 +1,15 @@
+# .NET build artifacts
+**/bin/
+**/obj/
+.verification-build/
+
+# IDE and local tooling
+.vs/
+.codex/
+.codex-work/
+**/*.csproj.user
+
+# Local configuration and secrets
+.env
+.env.*
+appsettings.Development.json

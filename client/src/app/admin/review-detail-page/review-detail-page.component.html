@@ -1,0 +1,48 @@
+<p><a routerLink="/admin/reviews">← До списку</a></p>
+
+@if (review(); as item) {
+  <h1>Відгук від {{ item.authorName }}</h1>
+  <p>{{ item.email }}</p>
+  <blockquote>{{ item.text }}</blockquote>
+  <dl>
+    <dt>Статус</dt>
+    <dd>{{ item.analysisStatus }}</dd>
+    <dt>Тональність</dt>
+    <dd>{{ item.sentiment ?? '—' }}</dd>
+    <dt>Пріоритет</dt>
+    <dd>{{ item.priority ?? '—' }}</dd>
+    <dt>Категорія</dt>
+    <dd>{{ item.category ?? '—' }}</dd>
+    <dt>Потрібна термінова реакція</dt>
+    <dd>
+      {{ item.needsUrgentResponse === undefined ? '—' : item.needsUrgentResponse ? 'Так' : 'Ні' }}
+    </dd>
+  </dl>
+  <section>
+    <h2>AI-аналіз</h2>
+    <p>{{ item.summary ?? 'Аналіз ще не виконано.' }}</p>
+    @if (item.aiAnalysisProvider && item.aiAnalysisModel) {
+      <p>Створено: {{ item.aiAnalysisProvider }} ({{ item.aiAnalysisModel }})</p>
+    }
+    <button type="button" (click)="analyze()" [disabled]="isAnalyzing()">
+      {{ isAnalyzing() ? 'Аналізуємо…' : 'Проаналізувати відгук' }}
+    </button>
+  </section>
+  <section>
+    <h2>Чернетка відповіді клієнту</h2>
+    <p>{{ item.aiDraftResponse ?? 'Чернетку ще не згенеровано.' }}</p>
+    @if (item.aiDraftResponseProvider && item.aiDraftResponseModel) {
+      <p>Створено: {{ item.aiDraftResponseProvider }} ({{ item.aiDraftResponseModel }})</p>
+    }
+    <button type="button" (click)="generateDraftResponse()" [disabled]="isGeneratingResponse()">
+      {{ isGeneratingResponse() ? 'Генеруємо…' : 'Згенерувати відповідь' }}
+    </button>
+  </section>
+  @if (actionError()) {
+    <p role="alert">{{ actionError() }}</p>
+  }
+} @else if (error()) {
+  <p role="alert">{{ error() }}</p>
+} @else {
+  <p>Завантаження…</p>
+}

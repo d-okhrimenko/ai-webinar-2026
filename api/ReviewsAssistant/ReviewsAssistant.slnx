@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="ReviewsAssistant.Application/ReviewsAssistant.Application.csproj" Id="85a2cd11-470a-4e03-8d04-61efee1c1970" />
+  <Project Path="ReviewsAssistant.Core/ReviewsAssistant.Core.csproj" />
+  <Project Path="ReviewsAssistant.Infrastructure/ReviewsAssistant.Infrastructure.csproj" Id="b39d6fb8-a8c0-4f96-9a2f-b1ffec0418bb" />
+  <Project Path="ReviewsAssistant.WebAPI/ReviewsAssistant.WebAPI.csproj" />
+</Solution>

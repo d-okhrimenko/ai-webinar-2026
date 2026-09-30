@@ -1,0 +1,29 @@
+form {
+  display: grid;
+  gap: 20px;
+  max-width: 620px;
+  padding: 28px;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(60 64 67 / 12%);
+}
+label {
+  display: grid;
+  gap: 8px;
+  color: #3c4043;
+  font-size: 14px;
+  font-weight: 500;
+}
+input,
+textarea {
+  padding: 10px 12px;
+}
+.success {
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border: 1px solid #ceead6;
+  border-radius: 4px;
+  background: #e6f4ea;
+  color: #137333;
+}
