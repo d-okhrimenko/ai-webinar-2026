@@ -7,6 +7,8 @@
 .vs/
 .codex/
 .codex-work/
+**/.codex/
+**/.codex-work/
 **/*.csproj.user
 
 # Local configuration and secrets
