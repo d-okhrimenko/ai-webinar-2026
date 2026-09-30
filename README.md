@@ -1,3 +1,5 @@
+🚀 [Курс AI for Developers](https://edu.cbsystematics.com/ua/courses/ai-for-developers?utm_source=codeua_ia_webinar_git) — опануйте AI-інструменти для розробки програмного забезпечення.
+
 # Reviews Assistant
 
 **Reviews Assistant** — навчальний full-stack застосунок із вебінару про інтеграцію OpenAI API з .NET. Користувачі залишають відгуки, а адміністратор за допомогою AI аналізує їхню тональність, пріоритет, категорію й терміновість, а також генерує чернетки відповідей.
